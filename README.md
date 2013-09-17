@@ -6,52 +6,56 @@ Utility to manage styles.
 
 ##### Code Example
 
-    var React = require('React');
-    var ReactStyle = require('ReactStyle');
+```javascript
 
-    // Require pre-defined style rules.
-    var ExampleStyleRules = require('ExampleStyleRules');
+var React = require('React');
+var ReactStyle = require('ReactStyle');
 
-    // Define your own style rules.
-    var AnotherStyleRules = ReactStyle.create({
-      '.body': {
-        borderWidth: '10px'
-      },
+// Require pre-defined style rules.
+var ExampleStyleRules = require('ExampleStyleRules');
 
-      '.body > .header': {
-        fontSize: '10px',
-        fontWeight: 'bold'
-      }
-    });
+// Define your own style rules.
+var AnotherStyleRules = ReactStyle.create({
+  '.body': {
+    borderWidth: '10px'
+  },
 
-    // Add style rules to site.
-    ReactStyle.addRules(ExampleStyleRules);
-    ReactStyle.addRules(MoreStyleRules);
+  '.body > .header': {
+    fontSize: '10px',
+    fontWeight: 'bold'
+  }
+});
 
-    // Cache references of classNames for later use.
-    var ExampleClassName = ExampleStyleRules.ClassName;
-    var AnotherStyleRulesClassName = AnotherStyleRules.ClassName;
+// Add style rules to site.
+ReactStyle.addRules(ExampleStyleRules);
+ReactStyle.addRules(MoreStyleRules);
 
-    var Example = React.createClass({
-      render: function() {
-        var bodyClassName = [
-          ExampleClassName.body,
-          AnotherStyleRulesClassName.body
-        ].join(' ');
-        return (
-          <html>
-            <head>
-              <title>React Styles Example</title>
-              {ReactStyle.renderToComponents()}
-            </head>
-            <body class={bodyClassName}>
-              <h1 class={AnotherStyleRulesClassName.header}>
-                Hello World
-              </div>
-            </body>
-          </html>
-        );
-      }
-    });
+// Cache references of classNames for later use.
+var ExampleClassName = ExampleStyleRules.ClassName;
+var AnotherStyleRulesClassName = AnotherStyleRules.ClassName;
 
-    module.exports = Example;
+var Example = React.createClass({
+  render: function() {
+    var bodyClassName = [
+      ExampleClassName.body,
+      AnotherStyleRulesClassName.body
+    ].join(' ');
+    return (
+      <html>
+        <head>
+          <title>React Styles Example</title>
+          {ReactStyle.renderToComponents()}
+        </head>
+        <body class={bodyClassName}>
+          <h1 class={AnotherStyleRulesClassName.header}>
+            Hello World
+          </div>
+        </body>
+      </html>
+    );
+  }
+});
+
+module.exports = Example;
+
+```
