@@ -20,7 +20,7 @@ var ReactSiteStyles = require('ReactSiteStyles');
 
 ReactSiteStyles.addRules(ExampleStyleRules);
 
-var cx = ExampleStyleRules.getClassName;
+var ExampleClassName = ExampleStyleRules.ClassName;
 
 var Example = React.createClass({
   render: function() {
@@ -30,7 +30,7 @@ var Example = React.createClass({
           <title>React Styles Example</title>
           {ReactSiteStyles.renderToComponents()}
         </head>
-        <body class={cx('body')}>
+        <body class={ExampleClassName.body}>
           Hello World
         </body>
       </html>

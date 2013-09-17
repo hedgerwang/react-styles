@@ -24,11 +24,13 @@ var _namespaceID = 0;
  * @constructor
  */
 function ReactStyleRules(rulesMap) {
-  var namespace = '_SR_' + (_namespaceID++) + '_';
+  var namespace = '\u00AE' + (_namespaceID++) + '_';
   var i = 0;
   var rules = [];
+  var classNameMap = {};
+  var replacer = namespaceReplacer.bind(null, classNameMap, namespace);
   for (var selectors in rulesMap) {
-    var ruleText = namespacify(selectors, '.' + namespace + '$2') + '{';
+    var ruleText = namespacify(selectors, replacer) + '{';
     var declarations = rulesMap[selectors];
     for (var property in declarations) {
       var value = declarations[property];
@@ -42,6 +44,7 @@ function ReactStyleRules(rulesMap) {
   this._rules = rules;
   this._namespace = namespace;
   this.getClassName = this.getClassName.bind(this);
+  this.ClassName = classNameMap;
 }
 
 /**
@@ -81,6 +84,12 @@ ReactStyleRules.prototype.getClassName = function(className) {
  */
 function namespacify(str, newSubStr) {
   return str.replace(CLASSNAME_SELECTOR_PATTERN, newSubStr);
+}
+
+function namespaceReplacer(classNameMap, namespace, m1, m2, className) {
+  var newClassName = namespace + className;
+  classNameMap[className] = newClassName;
+  return '.' + newClassName;
 }
 
 /**
