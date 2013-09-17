@@ -1,4 +1,4 @@
-react_styles
+React Styles
 ============
 
-Utility to manage component stylesheets
+Utility to manage styles.

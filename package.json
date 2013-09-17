@@ -1,0 +1,18 @@
+{
+  "name": "react-styles",
+  "version": "0.1.0",
+  "description": "Utility to manage styles for React JS components",
+  "main": "main.js",
+  "dependencies": {
+    "React": "git://github.com/facebook/react.git"
+  },
+  "author": {
+    "name": "Hedger Wang",
+    "email": "hedgerwang@gmail.com",
+    "url": "http://github.com/hedgerwang"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "license": "Apache-2.0"
+}
