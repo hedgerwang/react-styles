@@ -6,15 +6,21 @@ Utility to manage styles.
 
 ##### Code Example
 
-    // Require pre-defined style rules.
-    var ExampleStyleRules = require('ExampleStyleRules');
     var React = require('React');
     var ReactStyle = require('ReactStyle');
+
+    // Require pre-defined style rules.
+    var ExampleStyleRules = require('ExampleStyleRules');
 
     // Define your own style rules.
     var AnotherStyleRules = ReactStyle.create({
       '.body': {
         borderWidth: '10px'
+      },
+
+      '.body > .header': {
+        fontSize: '10px',
+        fontWeight: 'bold'
       }
     });
 
@@ -28,7 +34,7 @@ Utility to manage styles.
 
     var Example = React.createClass({
       render: function() {
-        var className = [
+        var bodyClassName = [
           ExampleClassName.body,
           AnotherStyleRulesClassName.body
         ].join(' ');
@@ -38,8 +44,10 @@ Utility to manage styles.
               <title>React Styles Example</title>
               {ReactStyle.renderToComponents()}
             </head>
-            <body class={className}>
-              Hello World
+            <body class={bodyClassName}>
+              <h1 class={AnotherStyleRulesClassName.header}>
+                Hello World
+              </div>
             </body>
           </html>
         );
