@@ -1,5 +1,5 @@
 /**
- * @providesModule ReactStyles
+ * @providesModule ReactStyleRulesManager
  * @jsx React.DOM
  */
 
@@ -13,7 +13,7 @@ var ReactStyleRules = require('ReactStyleRules');
  * @param {number} maxComponentsLength
  * @constructor
  */
-function ReactStyles(maxRulesLengthPerStyle, maxComponentsLength) {
+function ReactStyleRulesManager(maxRulesLengthPerStyle, maxComponentsLength) {
   /**
    * @type {array<ReactStyleRules>}
    */
@@ -33,7 +33,7 @@ function ReactStyles(maxRulesLengthPerStyle, maxComponentsLength) {
 /**
  * @param {ReactStyleRules} styleRules
  */
-ReactStyles.prototype.addRules = function(styleRules) {
+ReactStyleRulesManager.prototype.addRules = function(styleRules) {
   if (!styleRules || styleRules.constructor !== ReactStyleRules) {
     throw new Error('Invalid rules');
   }
@@ -51,7 +51,7 @@ ReactStyles.prototype.addRules = function(styleRules) {
 /**
  * @return {array<object>}
  */
-ReactStyles.prototype.renderToComponents = function() {
+ReactStyleRulesManager.prototype.renderToComponents = function() {
   var styleRulesList = this._styleRulesList;
   var components = [];
   var cssText = '';
@@ -97,5 +97,5 @@ ReactStyles.prototype.renderToComponents = function() {
   return components;
 }
 
-module.exports = ReactStyles;
+module.exports = ReactStyleRulesManager;
 

@@ -16,9 +16,9 @@
 
 var ExampleStyleRules = require('ExampleStyleRules');
 var React = require('React');
-var ReactSiteStyles = require('ReactSiteStyles');
+var ReactStyle = require('ReactStyle');
 
-ReactSiteStyles.addRules(ExampleStyleRules);
+ReactStyle.addRules(ExampleStyleRules);
 
 var ExampleClassName = ExampleStyleRules.ClassName;
 
@@ -28,7 +28,7 @@ var Example = React.createClass({
       <html>
         <head>
           <title>React Styles Example</title>
-          {ReactSiteStyles.renderToComponents()}
+          {ReactStyle.renderToComponents()}
         </head>
         <body class={ExampleClassName.body}>
           Hello World

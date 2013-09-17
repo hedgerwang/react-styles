@@ -2,9 +2,9 @@
  * @providesModule ExampleStyleRules
  */
 
-var ReactStyleRules = require('ReactStyleRules');
+var ReactStyle = require('ReactStyle');
 
-var ExampleStyleRules = new ReactStyleRules({
+var ExampleStyleRules = ReactStyle.create({
   '.body': {
     color: '#666',
     fontFamily: 'Helvetica',
