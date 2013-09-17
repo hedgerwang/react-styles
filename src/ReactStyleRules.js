@@ -27,8 +27,7 @@ function ReactStyleRules(rulesMap) {
   var namespace = '\u00AE' + (_namespaceID++) + '_';
   var i = 0;
   var rules = [];
-  var classNameMap = {};
-  var replacer = namespaceReplacer.bind(null, classNameMap, namespace);
+  var replacer = namespaceReplacer.bind(null, this, namespace);
   for (var selectors in rulesMap) {
     var ruleText = namespacify(selectors, replacer) + '{';
     var declarations = rulesMap[selectors];
@@ -44,7 +43,6 @@ function ReactStyleRules(rulesMap) {
   this._rules = rules;
   this._namespace = namespace;
   this.length = rules.length;
-  this.ClassName = classNameMap;
 }
 
 /**
