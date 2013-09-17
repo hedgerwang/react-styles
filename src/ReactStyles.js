@@ -62,7 +62,7 @@ ReactStyles.prototype.renderToComponents = function() {
 
   for (var i = 0, j = styleRulesList.length; i < j; i++) {
     var styleRules = styleRulesList[i];
-    var newRulesCount = rulesCount + styleRules.getLength();
+    var newRulesCount = rulesCount + styleRules.length;
     if (newRulesCount > maxRulesLengthPerStyle) {
       if (cssText) {
         components.push(
@@ -76,7 +76,7 @@ ReactStyles.prototype.renderToComponents = function() {
       }
     } else {
       rulesCount = newRulesCount;
-      cssText += styleRules.toString() + '/**/';
+      cssText += styleRules.toString();
     }
   }
 

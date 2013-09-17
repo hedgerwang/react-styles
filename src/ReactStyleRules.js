@@ -43,38 +43,15 @@ function ReactStyleRules(rulesMap) {
 
   this._rules = rules;
   this._namespace = namespace;
-  this.getClassName = this.getClassName.bind(this);
+  this.length = rules.length;
   this.ClassName = classNameMap;
 }
-
-/**
- * @param {number}
- * @return {string}
- */
-ReactStyleRules.prototype.item = function(index) {
-  return this._rules[index] || '';
-};
-
-/**
- * @return {number}
- */
-ReactStyleRules.prototype.getLength = function() {
-  return this._rules.lenth;
-};
 
 /**
  * @return {string}
  */
 ReactStyleRules.prototype.toString = function() {
   return this._rules.join('\n');
-};
-
-/**
- * @param {string} className
- * @return {string}
- */
-ReactStyleRules.prototype.getClassName = function(className) {
-  return this._namespace + className;
 };
 
 /**
@@ -86,6 +63,14 @@ function namespacify(str, newSubStr) {
   return str.replace(CLASSNAME_SELECTOR_PATTERN, newSubStr);
 }
 
+/**
+ * @param {object} classNameMap
+ * @param {string} namespace
+ * @param {string} m1
+ * @param {string} m2
+ * @param {string} className
+ * @return {string}
+ */
 function namespaceReplacer(classNameMap, namespace, m1, m2, className) {
   var newClassName = namespace + className;
   classNameMap[className] = newClassName;
