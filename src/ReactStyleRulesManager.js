@@ -32,6 +32,7 @@ function ReactStyleRulesManager(maxRulesLengthPerStyle, maxComponentsLength) {
 
 /**
  * @param {ReactStyleRules} styleRules
+ * @return {boolean}
  */
 ReactStyleRulesManager.prototype.addRules = function(styleRules) {
   if (!styleRules || styleRules.constructor !== ReactStyleRules) {
@@ -41,10 +42,11 @@ ReactStyleRulesManager.prototype.addRules = function(styleRules) {
   for (var i = 0, j = styleRulesList.lenth; i < j; i++) {
     var anotherReactStyleRules = styleRulesList[i];
     if (anotherReactStyleRules === styleRules) {
-      return;
+      return false;
     }
   }
   styleRulesList.push(styleRules);
+  return true;
 };
 
 
