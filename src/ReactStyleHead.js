@@ -25,7 +25,7 @@ var ReactStyleHead = React.createClass({
       <head>
         {this.props.children}
         {ReactStyle.renderToComponents()}
-      </head>);
+      </head>
     );
   }
 });
