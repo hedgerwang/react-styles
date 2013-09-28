@@ -24,7 +24,7 @@ var _namespaceID = 0;
  * @constructor
  */
 function ReactStyleRules(rulesMap) {
-  var namespace = '_SYSTEM_GENERATED_' + (_namespaceID++) + '_';
+  var namespace = '\u00AE' + (_namespaceID++) + '_';
   var i = 0;
   var rules = [];
   var replacer = namespaceReplacer.bind(null, this, namespace);
@@ -72,7 +72,7 @@ function namespacify(str, newSubStr) {
 function namespaceReplacer(classNameMap, namespace, m1, m2, className) {
   var newClassName = namespace + className;
   classNameMap[className] = newClassName;
-  return '.' + newClassName;
+  return '.\\' + newClassName;
 }
 
 /**

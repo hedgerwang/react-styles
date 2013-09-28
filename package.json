@@ -1,6 +1,6 @@
 {
   "name": "react-styles",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Utility to manage styles for React JS components",
   "main": "main.js",
   "dependencies": {
